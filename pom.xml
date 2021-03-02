@@ -35,12 +35,8 @@
         <repository>
             <id>github</id>
             <name>GitHub sbk-cloud-services Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/sbk-cloud-services/customer-microservice</url>
+            <url>https://github.com/sbk-cloud-services/customer-microservice/packages/635263</url>
         </repository>
-        <repository>
-            <id>sbk-cloud-services</id>
-            <url>https://github.com/sbk-cloud-services/order-microservice</url>
-          </repository>
     </repositories>
 
     <dependencies>
