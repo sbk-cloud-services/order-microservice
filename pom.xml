@@ -19,6 +19,7 @@
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <junit>5.6.2</junit>
+        <spring>5.3.0</spring>
         
         <!-- Plugin versions -->
         <maven.shade>3.2.2</maven.shade>
@@ -34,7 +35,7 @@
         <repository>
             <id>github</id>
             <name>GitHub sbk-cloud-services Apache Maven Packages</name>
-            <url>https://github.com/sbk-cloud-services/customer-microservice</url>
+            <url>https://maven.pkg.github.com/sbk-cloud-services/customer-microservice</url>
         </repository>
     </repositories>
 
@@ -66,6 +67,50 @@
             <artifactId>junit-jupiter-params</artifactId>
             <version>${junit}</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- Beans -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring}</version>
+        </dependency>
+
+        <!-- JPA / ORM -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.dozer</groupId>
+            <artifactId>dozer</artifactId>
+            <version>5.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.4.27.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.22</version>
         </dependency>
     </dependencies>
     
