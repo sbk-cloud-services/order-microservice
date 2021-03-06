@@ -6,12 +6,10 @@ import de.leuphana.shop.ordermicroservice.connector.OrderDatabaseConnector;
 
 public class OrderServiceImplementation implements OrderService {
 
-    private static OrderServiceImplementation orderServiceImplementation;
     private OrderDatabaseConnector orderDatabaseConnector;
 
-    public static OrderService getInstance() {
-        if(orderServiceImplementation == null) orderServiceImplementation = new OrderServiceImplementation();
-        return orderServiceImplementation;
+    public OrderServiceImplementation(OrderDatabaseConnector orderDatabaseConnector) {
+        this.orderDatabaseConnector = orderDatabaseConnector;
     }
 
     @Override
@@ -28,8 +26,4 @@ public class OrderServiceImplementation implements OrderService {
         return orderDatabaseConnector.getOrder(id);
     }
 
-    @Override
-    public void setOrderDatabaseConnector(OrderDatabaseConnector orderDatabaseConnector) {
-        this.orderDatabaseConnector = orderDatabaseConnector;
-    }    
 }
