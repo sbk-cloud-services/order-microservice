@@ -13,14 +13,19 @@ public class OrderServiceImplementation implements OrderService {
 
     @Override
     public Order createOrder(Integer customerId, Integer cartId) {
-        // TODO Auto-generated method stub
-        return null;
+        Order order = new Order();
+
+        order.setCartId(cartId);
+        order.setCustomerId(customerId);
+        order.setOrderId(orderDatabaseConnector.createOrder(order));
+
+
+        return order;
     }
 
     @Override
-    public Order getOrder(Integer id) {
-        // TODO Auto-generated method stub
-        return null;
+    public Order getOrder(Integer orderId) {
+        return orderDatabaseConnector.getOrder(orderId);
     }
 
 
