@@ -26,8 +26,8 @@ public class OrderDatabaseConnector {
         }
     
         @Transactional
-        public Order getOrder(Integer id) {
-            OrderEntity orderEntity = entityManager.getReference(OrderEntity.class, id);
+        public Order getOrder(Integer orderId) {
+            OrderEntity orderEntity = entityManager.getReference(OrderEntity.class, orderId);
             return OrderMapper.mapOrderEntityToOrder(orderEntity);
         }
     }

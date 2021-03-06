@@ -1,6 +1,5 @@
 package de.leuphana.shop.ordermicroservice.component.behaviour;
 
-import de.leuphana.shop.customermicroservice.component.structure.Customer;
 import de.leuphana.shop.ordermicroservice.component.structure.Order;
 import de.leuphana.shop.ordermicroservice.connector.OrderDatabaseConnector;
 
@@ -13,17 +12,21 @@ public class OrderServiceImplementation implements OrderService {
     }
 
     @Override
-    public Order createOrder(Customer customer, Cart cart) {
+    public Order createOrder(Integer customerId, Integer cartId) {
         Order order = new Order();
-        order.setCart(cart);
-        order.setCustomer(customer);
-        order.setId(orderDatabaseConnector.createOrder(order));
+
+        order.setCartId(cartId);
+        order.setCustomerId(customerId);
+        order.setOrderId(orderDatabaseConnector.createOrder(order));
+
+
         return order;
     }
 
     @Override
-    public Order getOrder(Integer id) {
-        return orderDatabaseConnector.getOrder(id);
+    public Order getOrder(Integer orderId) {
+        return orderDatabaseConnector.getOrder(orderId);
     }
+
 
 }
