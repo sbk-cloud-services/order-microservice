@@ -19,7 +19,6 @@ public class OrderServiceImplementation implements OrderService {
         order.setCustomerId(customerId);
         order.setOrderId(orderDatabaseConnector.createOrder(order));
 
-
         return order;
     }
 
@@ -27,6 +26,5 @@ public class OrderServiceImplementation implements OrderService {
     public Order getOrder(Integer orderId) {
         return orderDatabaseConnector.getOrder(orderId);
     }
-
 
 }

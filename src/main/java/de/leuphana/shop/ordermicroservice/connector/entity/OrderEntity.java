@@ -5,39 +5,38 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import de.leuphana.shop.customermicroservice.component.structure.Customer;
-
 @Entity
 public class OrderEntity {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
-    private Cart cart;
-    private Customer customer;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer orderId;
 
-    public Integer getId() {
-        return id;
+    private Integer cartId;
+    private Integer customerId;
+
+    public Integer getOrderId() {
+        return orderId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 
-    public Cart getCart() {
-        return cart;
+    public Integer getCartId() {
+        return cartId;
     }
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
+    public void setCartId(Integer cartId) {
+        this.cartId = cartId;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Integer getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
     }
-    
+
 }
