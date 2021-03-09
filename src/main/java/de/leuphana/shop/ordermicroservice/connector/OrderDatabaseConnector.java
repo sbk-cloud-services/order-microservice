@@ -13,21 +13,21 @@ import de.leuphana.shop.ordermicroservice.connector.mapper.OrderMapper;
 public class OrderDatabaseConnector {
     private EntityManager entityManager;
 
-        @PersistenceContext(type = PersistenceContextType.TRANSACTION)
-        public void setEntityManager(EntityManager entityManager) {
-            this.entityManager = entityManager;
-        }
-    
-        @Transactional
-        public Integer createOrder(Order order) {
-            OrderEntity orderEntity = OrderMapper.mapOrderToOrderEntity(order);
-            entityManager.persist(orderEntity);
-            return orderEntity.getId();
-        }
-    
-        @Transactional
-        public Order getOrder(Integer orderId) {
-            OrderEntity orderEntity = entityManager.getReference(OrderEntity.class, orderId);
-            return OrderMapper.mapOrderEntityToOrder(orderEntity);
-        }
+    @PersistenceContext(type = PersistenceContextType.TRANSACTION)
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
+
+    @Transactional
+    public Integer createOrder(Order order) {
+        OrderEntity orderEntity = OrderMapper.mapOrderToOrderEntity(order);
+        entityManager.persist(orderEntity);
+        return orderEntity.getOrderId();
+    }
+
+    @Transactional
+    public Order getOrder(Integer orderId) {
+        OrderEntity orderEntity = entityManager.getReference(OrderEntity.class, orderId);
+        return OrderMapper.mapOrderEntityToOrder(orderEntity);
+    }
+}
