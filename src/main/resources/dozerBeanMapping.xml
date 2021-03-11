@@ -4,8 +4,4 @@
         <class-a>de.leuphana.shop.ordermicroservice.component.structure.Order</class-a>
         <class-b>de.leuphana.shop.ordermicroservice.connector.entity.OrderEntity</class-b>
     </mapping>
-    <mapping>
-        <class-a>de.leuphana.shop.ordermicroservice.component.structure.OrderItem</class-a>
-        <class-b>de.leuphana.shop.ordermicroservice.connector.entity.OrderItemEntity</class-b>
-    </mapping>
 </mappings>

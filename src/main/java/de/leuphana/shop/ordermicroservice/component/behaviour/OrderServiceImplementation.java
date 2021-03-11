@@ -1,5 +1,7 @@
 package de.leuphana.shop.ordermicroservice.component.behaviour;
 
+import java.util.List;
+
 import de.leuphana.shop.ordermicroservice.component.structure.Order;
 import de.leuphana.shop.ordermicroservice.connector.OrderDatabaseConnector;
 
@@ -27,4 +29,8 @@ public class OrderServiceImplementation implements OrderService {
         return orderDatabaseConnector.getOrder(orderId);
     }
 
+    @Override
+    public List<Order> getOrders() {
+        return orderDatabaseConnector.getOrders();
+    }
 }

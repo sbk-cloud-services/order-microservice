@@ -1,5 +1,8 @@
 package de.leuphana.shop.ordermicroservice.connector;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
@@ -29,5 +32,15 @@ public class OrderDatabaseConnector {
     public Order getOrder(Integer orderId) {
         OrderEntity orderEntity = entityManager.getReference(OrderEntity.class, orderId);
         return OrderMapper.mapOrderEntityToOrder(orderEntity);
+    }
+
+    @Transactional
+    public List<Order> getOrders() {
+        List<OrderEntity> orderEntities = entityManager.createQuery("FROM OrderEntity").getResultList();
+        List<Order> orders = new LinkedList<>();
+        for (OrderEntity orderEntity : orderEntities) {
+            orders.add(OrderMapper.mapOrderEntityToOrder(orderEntity));
+        }
+        return orders;
     }
 }

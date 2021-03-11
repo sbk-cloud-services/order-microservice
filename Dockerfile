@@ -5,7 +5,6 @@ COPY src/ /service/src
 
 WORKDIR /service/
 
-
 ARG m2
 
 RUN mkdir -p ~/.m2
