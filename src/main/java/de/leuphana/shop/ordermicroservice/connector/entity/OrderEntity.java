@@ -1,9 +1,13 @@
 package de.leuphana.shop.ordermicroservice.connector.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import de.leuphana.shop.ordermicroservice.component.structure.OrderPosition;
 
 @Entity
 public class OrderEntity {
@@ -11,8 +15,7 @@ public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer orderId;
-
-    private Integer cartId;
+    private List<OrderPosition> orderPositions;
     private Integer customerId;
 
     public Integer getOrderId() {
@@ -23,12 +26,12 @@ public class OrderEntity {
         this.orderId = orderId;
     }
 
-    public Integer getCartId() {
-        return cartId;
+    public List<OrderPosition> getOrderPositions() {
+        return orderPositions;
     }
 
-    public void setCartId(Integer cartId) {
-        this.cartId = cartId;
+    public void setOrderPositions(List<OrderPosition> orderPositions) {
+        this.orderPositions = orderPositions;
     }
 
     public Integer getCustomerId() {

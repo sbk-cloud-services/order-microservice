@@ -22,7 +22,7 @@ public class OrderRestController implements ApplicationContextAware {
     @ResponseBody
     public Order createOrder(@RequestBody Order order) {
 
-        return getOrderServiceFromApplicationContext().createOrder(order.getCustomerId(), order.getCartId());
+        return getOrderServiceFromApplicationContext().createOrder(order.getCustomerId(), order.getOrderPositions());
     }
 
     @GetMapping("/orders/{orderId}")
