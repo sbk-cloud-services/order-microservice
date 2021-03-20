@@ -1,16 +1,15 @@
 package de.leuphana.shop.ordermicroservice.connector.entity;
 
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-@Embeddable
+@Entity(name = "OrderPosition")
 public class OrderPositionEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     Integer articleId;
     Integer quantity;
@@ -40,4 +39,3 @@ public class OrderPositionEntity {
     }
 
 }
-

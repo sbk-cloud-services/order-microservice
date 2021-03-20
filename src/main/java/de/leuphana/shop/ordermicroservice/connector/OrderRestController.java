@@ -1,5 +1,7 @@
 package de.leuphana.shop.ordermicroservice.connector;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,12 +20,12 @@ public class OrderRestController {
     public Order createOrder(@RequestBody Order order) {
         OrderService orderService = (OrderService) OrderServiceApplication.getApplicationContext()
                 .getBean("orderServiceImplementation");
-        return orderService.createOrder(order.getCustomerId(), order.getCartId());
+        return orderService.createOrder(order.getCustomerId(), order.getOrderPositions());
     }
 
     @GetMapping("/orders/{id}")
     @ResponseBody
-    public Order getOrder(@PathVariable Integer orderId) {
+    public Order getOrder(@PathVariable("id") Integer orderId) {
         OrderService orderService = (OrderService) OrderServiceApplication.getApplicationContext()
                 .getBean("orderServiceImplementation");
         return orderService.getOrder(orderId);
@@ -31,9 +33,9 @@ public class OrderRestController {
 
     @GetMapping("/orders")
     @ResponseBody
-    public Order getOrders(@PathVariable Integer orderId) {
+    public List<Order> getOrders() {
         OrderService orderService = (OrderService) OrderServiceApplication.getApplicationContext()
                 .getBean("orderServiceImplementation");
-        return orderService.getOrder(orderId);
+        return orderService.getOrders();
     }
 }

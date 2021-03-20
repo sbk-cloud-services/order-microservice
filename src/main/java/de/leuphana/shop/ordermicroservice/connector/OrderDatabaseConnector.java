@@ -28,7 +28,7 @@ public class OrderDatabaseConnector {
     public Integer createOrder(Order order) {
         OrderEntity orderEntity = OrderMapper.mapOrderToOrderEntity(order);
         entityManager.persist(orderEntity);
-        return orderEntity.getOrderId();
+        return orderEntity.getId();
     }
 
     @Transactional
@@ -49,7 +49,8 @@ public class OrderDatabaseConnector {
 
     @Transactional
     public OrderPosition createOrderPosition(OrderPosition orderPosition) {
-        OrderPositionEntity orderPositionEntity = OrderPositionMapper.mapOrderPositionToOrderPositionEntity(orderPosition);
+        OrderPositionEntity orderPositionEntity = OrderPositionMapper
+                .mapOrderPositionToOrderPositionEntity(orderPosition);
         entityManager.persist(orderPositionEntity);
         return OrderPositionMapper.mapOrderPositionEntityToOrderPosition(orderPositionEntity);
     }
