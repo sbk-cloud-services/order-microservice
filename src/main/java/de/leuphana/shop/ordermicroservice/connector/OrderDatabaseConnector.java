@@ -10,8 +10,11 @@ import javax.persistence.PersistenceContextType;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.leuphana.shop.ordermicroservice.component.structure.Order;
+import de.leuphana.shop.ordermicroservice.component.structure.OrderPosition;
 import de.leuphana.shop.ordermicroservice.connector.entity.OrderEntity;
+import de.leuphana.shop.ordermicroservice.connector.entity.OrderPositionEntity;
 import de.leuphana.shop.ordermicroservice.connector.mapper.OrderMapper;
+import de.leuphana.shop.ordermicroservice.connector.mapper.OrderPositionMapper;
 
 public class OrderDatabaseConnector {
     private EntityManager entityManager;
@@ -42,5 +45,12 @@ public class OrderDatabaseConnector {
             orders.add(OrderMapper.mapOrderEntityToOrder(orderEntity));
         }
         return orders;
+    }
+
+    @Transactional
+    public OrderPosition createOrderPosition(OrderPosition orderPosition) {
+        OrderPositionEntity orderPositionEntity = OrderPositionMapper.mapOrderPositionToOrderPositionEntity(orderPosition);
+        entityManager.persist(orderPositionEntity);
+        return OrderPositionMapper.mapOrderPositionEntityToOrderPosition(orderPositionEntity);
     }
 }

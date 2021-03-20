@@ -1,9 +1,11 @@
 package de.leuphana.shop.ordermicroservice.component.structure;
 
+import java.util.List;
+
 public class Order {
 
     private Integer orderId;
-    private Integer cartId;
+    private List<OrderPosition> orderPositions;
     private Integer customerId;
 
     public Integer getOrderId() {
@@ -14,12 +16,12 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public Integer getCartId() {
-        return cartId;
+    public List<OrderPosition> getOrderPositions() {
+        return orderPositions;
     }
 
-    public void setCartId(Integer cartId) {
-        this.cartId = cartId;
+    public void setOrderPositions(List<OrderPosition> orderPositions) {
+        this.orderPositions = orderPositions;
     }
 
     public Integer getCustomerId() {
