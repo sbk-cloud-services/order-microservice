@@ -24,7 +24,7 @@ public class OrderServiceTest {
     }
 
     @Test
-    void canOrderBeGotten() {
+    void canOrderBeFetched() {
         Integer orderId = orderService.createOrder(5, 5).getOrderId();
         Assertions.assertNotNull(orderService.getOrder(orderId));
     }
@@ -33,6 +33,5 @@ public class OrderServiceTest {
     void canOrdersBeFetched() {
         Assertions.assertNotNull(orderService.getOrders());
     }
-    
 
 }
