@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 import de.leuphana.shop.ordermicroservice.component.structure.OrderPosition;
 
-@Entity
+@Entity(name = "Order")
 public class OrderEntity {
 
     @Id
